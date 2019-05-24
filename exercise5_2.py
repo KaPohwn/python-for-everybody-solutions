@@ -9,25 +9,23 @@ by Charles R. Severance
 Solution by Jamison Lahman, May 28, 2017
 """
 
-count = 0								#Initializes values
+count = 0
 total = 0
-largest = None
 smallest = None
-
-while True:								#Stays in loop until break
-	input1 = input('Enter a number: ')
-	if input1 == 'done' : break			#Exits loop
-	try:
-		number = float(input1)			#Only allows input floats
-	except:
-		print('Invalid input')
-
-	if largest is None or number > largest:		#Condition for maximum
-		largest = number
-	if smallest is None or number < smallest:	#Condition for Minimum
-		smallest = number
-
-	count = count + 1					#Counter
-	total = total + number				#Running total
-	
-print(total,count,largest,smallest)
+largest = None
+while True:
+    entry = input("Please enter a number or type 'done': ")
+    if entry == 'done': break
+    try:
+        number = float(entry)
+    except:
+        print("Please type a number using numeric characters or type 'done': ")
+        continue
+    if smallest is None or number < smallest:
+        smallest = number
+    if largest is None or number > largest:
+        largest = number
+    count = count + 1
+    total = total + number
+    average = total / count
+print('You entered ' + str(count) + ' numbers. The smallest number you entered is: ' + str(smallest) + '. The largest number you entered is: ' + str(largest) + '. The sum total of all the numbers you entered is: ' + str(total) + '. The average of all the numbers you entered is: ' + str(average) + '.')
